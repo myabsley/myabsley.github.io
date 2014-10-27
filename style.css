@@ -1,0 +1,428 @@
+/* normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+/* border-box */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+/* clearfix */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+/* typography styling */
+body {
+	font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	background-color: #FBFBFB;
+	line-height: 1.5;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	margin: 0;
+	padding: 0;
+}
+
+h3 {
+	margin: 0;
+	padding: 0;
+	font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+}
+
+h4 {
+	margin: 0;
+	padding: 0;
+}
+
+.title h1 {
+	font-family: "Pacifico", sans-serif;
+	/*font-style: italic;*/
+	font-weight: 100;
+	font-size: 2rem;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	text-shadow: 1px 1px 0 rgba(200, 200, 200, 0.8);
+}
+
+.slogan h4 {
+	font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 300;
+	text-transform: lowercase;
+	font-size: 1rem;
+	color: #BBBBBB;
+}
+
+li {
+	list-style: none;
+}
+
+/* page layout */
+.header {
+	/*border: 1px solid red;*/
+}
+
+.corner1 {
+	/*padding-top: 10px;*/
+	font-size: 1.2rem;
+	display: inline-block;
+	position: relative;
+	top: -3px;
+}
+
+.title {
+	float: left;
+	width: 15%;
+	/*border: 1px solid orange;*/
+	text-align: right;
+}
+
+.slogan {
+	float: left;
+	width: 25%;
+	/*border: 1px solid blue;*/
+	margin-top: 35px;
+}
+
+div.nav {
+	width: 60%;
+	float: left;
+	padding: 0;
+	margin: 0;
+	/*border: 1px solid green;*/
+}
+
+div.container {
+	float: right;
+	padding-right: 5%;
+}
+
+a {
+	color:black;
+	text-decoration: none;
+}
+
+ul.nav {
+	text-transform: lowercase;
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100%;
+}
+	ul li {
+		display: inline-block;
+		position: relative;
+		float: left;
+		padding: 9px;
+		text-align: center;
+	}
+		ul li a {
+			padding: 10px;
+			float: left;
+		}
+
+	ul li ul {
+		color: white;
+		display: none;
+		position: absolute;
+		width: auto;
+		top: 45px;
+		/*border: 1px solid #ccc;*/
+		border-radius: 0 0 3px 3px;
+		box-shadow: 0 0 10px rgba(200, 200, 200, 0.7)
+
+	}
+
+		ul li:hover ul {
+			display: block;
+			z-index: 100;			
+		}
+
+	ul li ul li {
+		display: list-item;
+		list-style: none;
+		float: none;
+		padding: 0;
+		border-bottom: 1px dotted #CCCCCC;
+	}
+
+		ul.sub-menu li:last-of-type {
+			border-bottom: none;
+		}
+
+		ul li ul li a {
+			padding: 2px 10px;
+			display: block;
+			float: none;
+			background: white;
+		}
+			ul li ul li a:hover {
+/*				background: rgba(200, 200, 200, 1);
+				color: white;*/
+				border-left: 5px solid #BBBBBB;
+			}
+
+	span.arrow {
+		font-size: 10px;
+	}
+
+.mainwrapper {
+	/*border: 1px solid purple;*/
+	width: 100%;
+	margin-top: 1.5%;
+/*	border: 1px solid green;*/
+}
+
+.slider {
+  margin: 0 auto;
+  width: 750px; /* Update to your slider width */
+  height: 500px; /* Update to your slider height */
+  position: relative;
+}
+
+.slider li {
+  display: none;
+  position: absolute;
+  list-style: none;
+
+}
+
+.slider img {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	border: 10px solid white;
+	box-shadow: 0 0 15px rgba(200, 200, 200, 0.8);
+	-webkit-transition-property: grayscale;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-delay: 0; 
+	/* Standard syntax */
+	transition-property: grayscale;
+	transition-duration: 0.65s;
+	transition-timing-function: ease;
+	transition-delay: 0;
+}
+
+.slider img:hover {
+	-webkit-filter: grayscale(95%);
+	-moz-filter: grayscale(95%);
+	-ms-filter: grayscale(95%);
+	-o-filter: grayscale(95%);
+	filter: grayscale(95%);
+}
+
+p.overlay {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 100;
+	padding: 1%;
+	width: 100%;
+	letter-spacing: 1px;
+	text-shadow: 1px 1px 0 rgba(50, 50, 50, 0.6);
+}
+	p.overlay span {
+		background: rgba(50, 50, 50, 0.5);
+		padding: 1%;
+	}
+
+.slider:hover p.overlay {
+	display: block;
+}
+
+p.info {
+	font-size: 0.5rem;
+	margin-top: 5px;
+	padding: 0;
+}
+
+/*– how to overlay my text
+– how to center this overlaid text
+– used same stylesheet for all pages?
+– target html entity with span!
+*/
+
+
+
+
+/* CONTACT PAGE SPECIFIC */
+
+h2 {
+	font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+	text-align: center;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+
+form.contactMe {
+	width: 100%;
+	padding: 1%;
+	margin: 0 auto;
+	background-color: #EEEEEE;
+}
+
+.wrapper {
+	width: 60%;
+	padding: 10px;
+	margin: 0 auto;
+	margin-top: 20px;
+	background-image: url(images/mail-border.jpg);
+	box-shadow: 0 0 10px rgba(200, 200, 200, 0.5)
+	/*background-repeat: no-repeat;*/
+}
+
+form.contactMe input, form.contactMe textarea {
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 1%;
+	box-shadow: 0 1px 0 #eaeaea;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+img.stamp1 {
+	width: 60px;
+	height: 60px;
+	padding: 1px 0px;
+	border: 1px solid #CCCCCC;
+}
+
+img.stamp2 {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	left: 165px;
+}
+
+img.social-icon {
+	width: 30px;
+	height: 30px;
+}
+
+input.name {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+form.contactMe input[type=email] {
+	width: 100%;
+}
+
+form.contactMe textarea {
+	width: 100%;
+	height: 200px;
+	font-size: 14px;
+}
+
+.contactInfo, .postMessage {
+	margin: 0;
+	padding: 0;
+	width: 50%;
+	float: left;
+	padding: 10px;
+	background-color: #EEEEEE;
+}
+
+.postMessage {
+	border-left: 1px dotted grey;
+}
+
+form.contactMe input[type=submit] {
+	color: #FBFBFB;
+	font-weight: 300;
+	background-color: #305db7;
+	border: 1px solid #1670c4;
+	box-shadow: 0 1px 0 #eaeaea;
+	margin: 0 auto;
+	display: block;
+	margin-top: 8px;
+	font-weight: 300;
+}
+
+h3.contactMe {
+	padding-top: 100px;
+}
+
+/* ABOUT PAGE */
+
+.aboutContent {
+	padding: 10px 80px 60px 80px;
+}
+
+.meghanImages {
+	padding: 30px 0 30px 0;
+}
+
+.meghanImages img {
+	width: 32.33333%;
+	margin: 0.41%;
+	border-radius: 50%;
+	float: left;
+	box-shadow: 1px 1px 0 #cccccc;
+}
+
+/* WORK PAGE */
+.workContent {
+	padding: 10px 80px 60px 80px;
+}
+
+.project {
+	width: 24%;
+	height: 200px;
+	background: rgba(200, 200, 200, 0.8);
+	margin: 0.666666%;
+	float: left;
+	border: 5px solid #FBFBFB;
+	box-shadow: 0 0 8px #cccccc;
+}
+
+.project:first-of-type {
+	margin-left: 0;
+}
+
+.project:last-of-type {
+	margin-right: 0;
+}
+
+.section {
+	clear: both;
+	padding-top: 20px;
+}
+
+
+
+/* BLOG PAGE */
+
+h4.construction {
+	font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+	color: #BBBBBB;
+	font-weight: 400;
+	text-align: center;
+}
