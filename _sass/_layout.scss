@@ -1,5 +1,6 @@
 // variable declarations
 $window-padding : 30px;
+$color-1 : #0daad1;
 
 /**
  * Site header
@@ -171,6 +172,10 @@ $window-padding : 30px;
 
     ul {
         list-style: none;
+
+        .active {
+            font-style: italic;
+        }
     }
 }
 
