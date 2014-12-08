@@ -8,21 +8,22 @@ photoApp.people = '72157647155835954';
 photoApp.nature = '72157649479219901';
 photoApp.food = '72157630963777870';
 photoApp.bunny = '72157633032755170';
-photoApp.home = 'home'
+photoApp.home = 'index';
 
-photoApp.clickedStream = 'home';
+photoApp.clickedStream = $('ul.nav .active').data('photostream').toLowerCase();
+console.log(photoApp.clickedStream);
 photoApp.lastChecked = 0;
 photoApp.pageNum = 1;
 
-photoApp.container = $('.container');
+photoApp.container = $('.img-container');
 
 // ajax call to retrieve photo data
 photoApp.getPhotos = function(photoStream) {
-	if (photoStream === 'home') {
+	if (photoStream == 'index') {
 		callURL = 'https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=' + photoApp.key + '&user_id=84373566%40N07&per_page=20&page=' + photoApp.pageNum + '&format=json&jsoncallback=?';
 	}
 	else {
-		callURL = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + photoApp.key + '&photoset_id=' + photoStream + '&format=json&jsoncallback=?';
+		callURL = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + photoApp.key + '&photoset_id=' + photoStream + '&per_page=20&page=' + photoApp.pageNum + '&format=json&jsoncallback=?';
 		console.log(callURL);
 	}
 
@@ -45,6 +46,8 @@ photoApp.getPhotos = function(photoStream) {
 	});
 }
 
+
+// use returned data to construct URLs for photos
 photoApp.makeURLs = function(set) {
 	var numPhotos = set.length;
 	var orderedSet = set.reverse();
@@ -57,28 +60,27 @@ photoApp.makeURLs = function(set) {
 	};
 }
 
+// display photos on the page
 photoApp.displayPhotos = function(imgSRC, imgData) {
 	var $img = $('<img>').attr('src', imgSRC).attr('class', 'box');
 	photoApp.container.append($img);
 }
 
 photoApp.init = function() {
-	photoApp.getPhotos('home');
+	photoApp.getPhotos(photoApp[photoApp.clickedStream]);
 }
 
 $(function() {
 	photoApp.init();
 
-	var $sectionLink = $('a.section');
+	var $sectionLink = $('ul.nav a');
 	$sectionLink.on('click', function(e) {
-		e.preventDefault();
 
 		photoApp.container.empty();
 		photoApp.pageNum = 1;
 
-		photoApp.clickedStream = $(this).data('photostream');
+		photoApp.clickedStream = $(this).data('photostream').toLowerCase();
 		photoApp.getPhotos(photoApp[photoApp.clickedStream]);
-		console.log(photoApp.clickedStream);
 
 	}); // end click handler section links
 
@@ -90,7 +92,7 @@ $(function() {
 	       if(timeBetween > 2) {
 		       photoApp.pageNum++;
 		       console.log(photoApp.pageNum);
-		       photoApp.getPhotos(photoApp.clickedStream);
+		       photoApp.getPhotos(photoApp[photoApp.clickedStream]);
 		       photoApp.lastChecked = new Date().getTime()
 	       }
 		 }

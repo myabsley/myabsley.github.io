@@ -1,0 +1,9 @@
+<nav class="nav-primary" role="navigation" >
+    <ul class="nav">
+        {% for p in site.pages %}
+        <li>
+        	<a {% if p.url == page.url %}class="active"{% endif %} data-photostream="{{ p.title }}" href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

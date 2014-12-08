@@ -1,0 +1,15 @@
+# Site settings
+title: Meghan's Photo Portfolio
+email: meghan@myabsley.com
+description: > # this means to ignore newlines until "baseurl:"
+ Gallery of photographic work by Meghan Yabsley. All photos original. Visit my homepage at http://myabsley.com.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://meghan.photos" # the base hostname & protocol for your site
+twitter_username: MeghanYabsley
+github_username:  myabsley
+
+# Build settings
+markdown: kramdown
+
+# require plugins as an array
+gems: ['jekyll-less']
