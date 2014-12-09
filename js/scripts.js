@@ -79,8 +79,6 @@ photoApp.displayPhotos = function(imgSRC, imgData, idx) {
 
 photoApp.launchInfo = function(clickedImg) {
 	var el = $(clickedImg);
-	var $src = el.attr('src');
-	$('large-img').attr('src', $src);
 	var $title = el.data('title');
 	var $dateTaken = el.data('dateTaken');
 	var $latitude = el.data('lat');
@@ -96,12 +94,12 @@ photoApp.launchInfo = function(clickedImg) {
 
 	var infoContainer = $('.info-container').remove();
 	// do all your inserting here
-	infoContainer.find('img.large-img').attr('src', $src);
+	// infoContainer.find('img.large-img').attr('src', $src);
 	infoContainer.find('h2').text($title);
-	photoApp.loadMap($latitude, $longitude);
+	// photoApp.loadMap($latitude, $longitude);
 
 	lastImageInRow.after(infoContainer);
-	$('.info-container').toggle();
+	$('.info-container').toggle('visible');
 }
 
 photoApp.closeInfo = function(clickedImg) {
@@ -110,8 +108,8 @@ photoApp.closeInfo = function(clickedImg) {
 
 photoApp.loadMap = function(latitude, longitude) {
       var mapOptions = {
-      	center: { lat: 34, lng: 21 },
-        zoom: 8
+      	center: { lat: latitude, lng: longitude },
+        zoom: 15
       };
       var mapDiv = $('.map-container')[0];
       photoApp.map = new google.maps.Map(mapDiv , mapOptions);
@@ -146,10 +144,10 @@ photoApp.init = function() {
 		 }
 	}); // end scroll handler
 
-	$('.img-container').on('click', 'img', function() {
-		$('.info-container').hide();
+	$('.img-container').on('mouseover', 'img', function() {
+		// $('.info-container').hide();
 
-		photoApp.launchInfo(this);
+		// photoApp.launchInfo(this);
 
 	}); // end img click handler
 }
