@@ -24,10 +24,10 @@ photoApp.getPhotos = function(photoStream) {
 	}
 	else {
 		callURL = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + photoApp.key + '&photoset_id=' + photoStream + '&extras=geo%2C+date_taken&per_page=20&page=' + photoApp.pageNum + '&format=json&jsoncallback=?';
-		console.log(callURL);
+		// console.log(callURL);
 	}
 
-	console.log(callURL);
+	// console.log(callURL);
 
 	$.ajax({
 		url : callURL,
@@ -80,7 +80,6 @@ photoApp.displayPhotos = function(imgSRC, imgData, idx) {
 photoApp.launchInfo = function(clickedImg) {
 	var el = $(clickedImg);
 	var $src = el.attr('src');
-	console.log($src);
 	$('large-img').attr('src', $src);
 	var $title = el.data('title');
 	var $dateTaken = el.data('dateTaken');
@@ -140,7 +139,7 @@ photoApp.init = function() {
 
 	       if(timeBetween > 2) {
 		       photoApp.pageNum++;
-		       console.log(photoApp.pageNum);
+		       // console.log(photoApp.pageNum);
 		       photoApp.getPhotos(photoApp[photoApp.clickedStream]);
 		       photoApp.lastChecked = new Date().getTime()
 	       }
